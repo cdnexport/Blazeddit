@@ -527,9 +527,9 @@ namespace Blazeddit.Shared
 
     public enum WhitelistStatus { AllAds, Nsfw, NoAds };
 
-    public enum PostHint { HostedVideo, Image, Link, RichVideo };
+    public enum PostHint { HostedVideo, Image, Link, RichVideo, Self };
 
-    public enum SubredditType { Public };
+    public enum SubredditType { Public, Restricted };
 
     public enum Kind { T3 };
 
@@ -751,6 +751,8 @@ namespace Blazeddit.Shared
                     return LinkFlairBackgroundColor.The9E8D49;
                 case "#ff4500":
                     return LinkFlairBackgroundColor.Ff4500;
+                default:
+                    return LinkFlairBackgroundColor.Empty;
             }
             throw new Exception("Cannot unmarshal type LinkFlairBackgroundColor");
         }
@@ -885,6 +887,8 @@ namespace Blazeddit.Shared
                     return PostHint.Link;
                 case "rich:video":
                     return PostHint.RichVideo;
+                case "self":
+                    return PostHint.Self;
             }
             throw new Exception("Cannot unmarshal type PostHint");
         }
@@ -911,6 +915,9 @@ namespace Blazeddit.Shared
                 case PostHint.RichVideo:
                     serializer.Serialize(writer, "rich:video");
                     return;
+                case PostHint.Self:
+                    serializer.Serialize(writer, "self");
+                    return;
             }
             throw new Exception("Cannot marshal type PostHint");
         }
@@ -930,6 +937,10 @@ namespace Blazeddit.Shared
             {
                 return SubredditType.Public;
             }
+            if (value == "restricted")
+            {
+                return SubredditType.Restricted;
+            }
             throw new Exception("Cannot unmarshal type SubredditType");
         }
 
@@ -944,6 +955,11 @@ namespace Blazeddit.Shared
             if (value == SubredditType.Public)
             {
                 serializer.Serialize(writer, "public");
+                return;
+            }
+            if (value == SubredditType.Restricted)
+            {
+                serializer.Serialize(writer, "restricted");
                 return;
             }
             throw new Exception("Cannot marshal type SubredditType");
