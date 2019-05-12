@@ -1,7 +1,32 @@
 ﻿@page "/"
+@inject HttpClient HttpClient
 
-<h1>Hello, world!</h1>
+<div>
+    @if(Subreddit == null)
+    {
+        <p>Loading posts from @(Subname)...</p>
+    }
+    else
+    {
+        foreach(var post in Subreddit.Posts)
+        {
+            <a href="@post.URL">@post.Title</a>
+            <br />
+        }
+    }
+</div>
 
-Welcome to your new app.
+@functions {
+    private Subreddit Subreddit { get; set; }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    private int Page { get; set; }
+
+    private Post Post { get; set; }
+
+    private string Subname { get; set; } = "All";
+
+    protected async override Task OnInitAsync()
+    {
+        Subreddit = await HttpClient.GetJsonAsync<Subreddit>("api/Subreddit/All");
+    }
+}
