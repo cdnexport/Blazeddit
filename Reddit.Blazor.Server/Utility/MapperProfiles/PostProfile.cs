@@ -19,15 +19,6 @@ namespace Reddit.Blazor.Server.Utility.MapperProfiles
                     dest => dest.URL,
                     opt => opt.MapFrom(src => src.Data.Url)
                 );
-
-            //CreateMap<Child[], Post[]>()
-            //    .ForMember(
-            //        dest => dest. dest.Title,
-            //        opt => opt.MapFrom(src => src.Data.Title))
-            //    .ForMember(
-            //        dest => dest.URL,
-            //        opt => opt.MapFrom(src => src.Data.Url)
-            //    );
         }
     }
 }
