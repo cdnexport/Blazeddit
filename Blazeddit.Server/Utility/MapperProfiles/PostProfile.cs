@@ -16,8 +16,16 @@ namespace Blazeddit.Server.Utility.MapperProfiles
                     dest => dest.Title,
                     opt => opt.MapFrom(src => src.Data.Title))
                 .ForMember(
-                    dest => dest.URL,
+                    dest => dest.Url,
                     opt => opt.MapFrom(src => src.Data.Url)
+                )
+                .ForMember(
+                    dest => dest.Permalink,
+                    opt => opt.MapFrom(src => src.Data.Permalink)
+                )
+                .ForMember(
+                    dest => dest.NumComments,
+                    opt => opt.MapFrom(src => src.Data.NumComments)
                 );
         }
     }

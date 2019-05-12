@@ -4,6 +4,10 @@
     {
         public string Title { get; set; }
 
-        public string URL { get; set; }
+        public string Url { get; set; }
+
+        public string Permalink { get; set; }
+
+        public long NumComments { get; set; }
     }
 }

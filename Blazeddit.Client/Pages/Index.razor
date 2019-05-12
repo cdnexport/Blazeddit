@@ -10,7 +10,9 @@
     {
         foreach(var post in Subreddit.Posts)
         {
-            <a href="@post.URL">@post.Title</a>
+            <a href="@post.Url">@post.Title</a>
+            <br />
+            <a href="@($"https://reddit.com{post.Permalink}")">@post.NumComments Comments</a>
             <br />
         }
     }
