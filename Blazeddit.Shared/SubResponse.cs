@@ -837,6 +837,10 @@ namespace Blazeddit.Shared
             {
                 return WhitelistStatus.NoAds;
             }
+            else
+            {
+                return WhitelistStatus.NoAds;
+            }
             throw new Exception("Cannot unmarshal type WhitelistStatus");
         }
 
