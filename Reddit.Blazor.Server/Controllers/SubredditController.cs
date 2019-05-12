@@ -22,7 +22,7 @@ namespace Reddit.Blazor.Server.Controllers
             return new string[] { "/r/all", "/r/Winnipeg", "/r/Canada" };
         }
 
-        // GET api/<controller>/5
+        // GET api/Subreddit/{NameOfSubreddit}/{AfterCode}
         [HttpGet("{sub}/{after?}")]
         public Subreddit Get(string sub, string after)
         {
