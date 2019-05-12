@@ -83,7 +83,7 @@ namespace Blazeddit.Shared
         public bool Hidden { get; set; }
 
         [JsonProperty("pwls")]
-        public long Pwls { get; set; }
+        public long? Pwls { get; set; }
 
         [JsonProperty("link_flair_css_class")]
         public string LinkFlairCssClass { get; set; }
