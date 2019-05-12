@@ -9,5 +9,7 @@
         public string Permalink { get; set; }
 
         public long NumComments { get; set; }
+
+        public Comment[] Comments { get; set; }
     }
 }

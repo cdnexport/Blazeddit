@@ -1,0 +1,14 @@
+﻿<div>
+    <a href="@Post.Url">@Post.Title</a>
+    <br />
+    <a onclick="@OnChosen">@Post.NumComments Comments</a>
+    <br />
+</div>
+
+@functions {
+    [Parameter]
+    Post Post { get; set; }
+
+    [Parameter]
+    EventCallback OnChosen { get; set; }
+}

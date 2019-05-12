@@ -1,20 +1,33 @@
 ﻿@page "/"
 @inject HttpClient HttpClient
 
-<div>
-    @if(Subreddit == null)
-    {
-        <p>Loading posts from @(Subname)...</p>
-    }
-    else
-    {
-        foreach(var post in Subreddit.Posts)
+<div class="row">
+    <div class="box left @(SelectedPost != null ? "col-6" : "")">
+        @if (Subreddit == null)
         {
-            <a href="@post.Url">@post.Title</a>
-            <br />
-            <a href="@($"https://reddit.com{post.Permalink}")">@post.NumComments Comments</a>
-            <br />
+            <p>Loading posts from @(Subname)...</p>
         }
+        else
+        {
+            foreach (var post in Subreddit.Posts)
+            {
+                <PostDisplay Post="post" OnChosen="() => ChosenPost(post)" />
+            }
+        }
+    </div>
+    @if (SelectedPost != null)
+    {
+        <div class="box right col-6">
+            <h2>@SelectedPost.Title</h2>
+            @if (SelectedPost.Comments?.Length > 0)
+            {
+                <p>There are comments?</p>
+            }
+            else
+            {
+                <p>Loading Comments...</p>
+            }
+        </div>
     }
 </div>
 
@@ -23,12 +36,18 @@
 
     private int Page { get; set; }
 
-    private Post Post { get; set; }
+    private Post SelectedPost { get; set; }
 
     private string Subname { get; set; } = "All";
 
     protected async override Task OnInitAsync()
     {
         Subreddit = await HttpClient.GetJsonAsync<Subreddit>("api/Subreddit/All");
+    }
+
+    void ChosenPost(Post post)
+    {
+        SelectedPost = post;
+        StateHasChanged();
     }
 }
