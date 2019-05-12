@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
-namespace Reddit.Blazor.Client
+namespace Blazeddit.Client
 {
     public class Program
     {

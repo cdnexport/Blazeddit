@@ -1,4 +1,4 @@
-﻿namespace Reddit.Blazor.Shared
+﻿namespace Blazeddit.Shared
 {
     public class Post
     {

@@ -6,11 +6,11 @@ using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Reddit.Blazor.Shared;
+using Blazeddit.Shared;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Reddit.Blazor.Server.Controllers
+namespace Blazeddit.Server.Controllers
 {
     [Route("api/[controller]")]
     public class SubredditController : Controller

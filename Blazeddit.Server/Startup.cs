@@ -7,9 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 using System.Linq;
 using AutoMapper;
-using Reddit.Blazor.Server.Utility.MapperProfiles;
+using Blazeddit.Server.Utility.MapperProfiles;
 
-namespace Reddit.Blazor.Server
+namespace Blazeddit.Server
 {
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace Reddit.Blazor.Server
             });
 
             Mapper.Initialize(cfg =>
-                cfg.AddMaps("Reddit.Blazor.Server")
+                cfg.AddMaps("Blazeddit.Server")
             );
         }
 

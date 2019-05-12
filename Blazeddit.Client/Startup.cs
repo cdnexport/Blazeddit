@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Reddit.Blazor.Client
+namespace Blazeddit.Client
 {
     public class Startup
     {

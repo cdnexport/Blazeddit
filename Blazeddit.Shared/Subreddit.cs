@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Reddit.Blazor.Shared
+namespace Blazeddit.Shared
 {
     public class Subreddit
     {

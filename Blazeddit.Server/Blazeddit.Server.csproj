@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Reddit.Blazor.Client\Reddit.Blazor.Client.csproj" />
-    <ProjectReference Include="..\Reddit.Blazor.Shared\Reddit.Blazor.Shared.csproj" />
+    <ProjectReference Include="..\Blazeddit.Client\Blazeddit.Client.csproj" />
+    <ProjectReference Include="..\Blazeddit.Shared\Blazeddit.Shared.csproj" />
   </ItemGroup>
 
 </Project>

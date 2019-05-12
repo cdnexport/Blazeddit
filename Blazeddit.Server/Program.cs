@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace Reddit.Blazor.Server
+namespace Blazeddit.Server
 {
     public class Program
     {
