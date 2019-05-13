@@ -19,13 +19,17 @@
     {
         <div class="box right col-6">
             <h2>@SelectedPost.Title</h2>
-            @if (SelectedPost.Comments?.Length > 0)
+            @if (SelectedPost.Comments == null)
+            {
+                <p>Loading comments...</p>
+            }
+            else if (SelectedPost.Comments?.Length > 0)
             {
                 <p>There are comments?</p>
             }
             else
             {
-                <p>Loading Comments...</p>
+                <p>No comments found.</p>
             }
         </div>
     }
@@ -42,12 +46,14 @@
 
     protected async override Task OnInitAsync()
     {
-        Subreddit = await HttpClient.GetJsonAsync<Subreddit>("api/Subreddit/All");
+        Subreddit = await RedditApi.GetSubreddit();
     }
 
     void ChosenPost(Post post)
     {
         SelectedPost = post;
+        SelectedPost.Comments = RedditApi.GetComments(SelectedPost.Permalink);
+
         StateHasChanged();
     }
 }

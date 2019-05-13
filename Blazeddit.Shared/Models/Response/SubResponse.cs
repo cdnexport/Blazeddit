@@ -194,7 +194,7 @@ namespace Blazeddit.Shared
         public FlairType LinkFlairType { get; set; }
 
         [JsonProperty("wls")]
-        public long Wls { get; set; }
+        public long? Wls { get; set; }
 
         [JsonProperty("banned_by")]
         public object BannedBy { get; set; }

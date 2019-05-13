@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Blazeddit.Shared\Blazeddit.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Utility\MapperProfiles\" />
+  </ItemGroup>
+
 </Project>
