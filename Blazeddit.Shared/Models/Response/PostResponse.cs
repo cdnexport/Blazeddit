@@ -6,15 +6,19 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Blazeddit.Shared.Models
+namespace Blazeddit.Shared.Response.PostR
 {
-    public partial class PostResponse
+    public partial class PostResponse : IJsonSerializable<PostResponse>
     {
         [JsonProperty("kind")]
         public string Kind { get; set; }
 
         [JsonProperty("data")]
         public PostResponseData Data { get; set; }
+
+        public PostResponse[] JsonArr(string from) => PostResponse.FromJson(from);
+
+        public PostResponse Json(string from) => throw new PlatformNotSupportedException("improper function to serialize");
     }
 
     public partial class PostResponseData
