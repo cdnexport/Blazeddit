@@ -19,5 +19,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Blazeddit.Shared\Blazeddit.Shared.csproj" />
   </ItemGroup>
-
+  
+  <PropertyGroup>
+    <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+  </PropertyGroup>
 </Project>
